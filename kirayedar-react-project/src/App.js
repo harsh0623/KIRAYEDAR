@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div className='col-2'>
+        <nav
+          className="navbar bg-primary"
+          style={{ width: "100%", height: "100vh", position: "relative" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+          <div className="container-fluid">
+            <img
+              src="https://st.depositphotos.com/2808409/3926/v/380/depositphotos_39264255-stock-illustration-flat-house-icon-background.jpg?forcejpeg=true"
+              style={{
+                width: "70px",
+                position: "absolute",
+                top: "32px",
+                left: "70px"
+              }}
+            />
+            <span
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                fontSize: "25px",
+                position: "absolute",
+                top: "100px",
+                left: "30px"
+              }}
+            >
+              KIRAYAEDAR
+            </span>
+          </div>
+        </nav>
+      </div>
+    </>
+  )
+};
 
 export default App;
