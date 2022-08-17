@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function HeaderComponent() {
   return (
@@ -29,6 +30,19 @@ export default function HeaderComponent() {
           KIRAYAEDAR
         </span>
       </div>
+      <Link to="/dashboard">
+        <div
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "75%",
+            color: "white",
+            fontSize: "25px",
+          }}
+        >
+          Dashboard
+        </div>
+      </Link>
     </nav>
   );
 }

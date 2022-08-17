@@ -47,7 +47,6 @@ const SignUpPage = () => {
               type="text"
               placeholder="First Name"
               id="Fname"
-              value=""
               onChange={test}
             />
             <label
@@ -66,7 +65,6 @@ const SignUpPage = () => {
               type="text"
               placeholder="Last Name"
               id="Lname"
-              value=""
               onChange={test}
             />
           </div>
@@ -86,7 +84,6 @@ const SignUpPage = () => {
               id="email"
               type="email"
               placeholder="Email"
-              value=""
               onChange={test}
             />
           </div>
@@ -106,7 +103,6 @@ const SignUpPage = () => {
               type="password"
               id="password"
               placeholder="Password"
-              value=""
               onChange={test}
             />
           </div>

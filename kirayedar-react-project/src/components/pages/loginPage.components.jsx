@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SignUpPage from "./signupPage.components";
+
 const LoginPage = () => {
   const test = () => "";
   return (
@@ -48,7 +48,6 @@ const LoginPage = () => {
                 id="email"
                 type="email"
                 placeholder="Email"
-                value=""
                 onChange={test}
               />
             </div>
@@ -68,7 +67,6 @@ const LoginPage = () => {
                 type="password"
                 id="password"
                 placeholder="Password"
-                value=""
                 onChange={test}
               />
             </div>
