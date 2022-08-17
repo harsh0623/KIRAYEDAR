@@ -8,7 +8,7 @@ const SignUpPage = () => {
       className="card"
       style={{
         width: "42%",
-        height: "60vh",
+        height: "61vh",
         marginLeft: "auto",
         marginRight: "auto",
         marginTop: "100px",
@@ -134,6 +134,12 @@ const SignUpPage = () => {
           Sign Up
         </button>
       </span>
+      <div>
+        <hr
+          className="fw-bold"
+          style={{ marginTop: "330px", width: "250px", marginLeft: "150px" }}
+        ></hr>
+      </div>
       <div
         className="fw-bold"
         style={{
@@ -143,14 +149,14 @@ const SignUpPage = () => {
         }}
       >
         Already Signed Up?
-        <span  style={{
-          position: "absolute",
-          left: "150px",
-          width:"100px"
-        }}>
-          <Link to="/">
-            Log in
-          </Link>
+        <span
+          style={{
+            position: "absolute",
+            left: "150px",
+            width: "100px",
+          }}
+        >
+          <Link to="/">Log in</Link>
         </span>
       </div>
     </div>

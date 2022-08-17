@@ -10,7 +10,7 @@ const LoginPage = () => {
         className="card"
         style={{
           width: "35%",
-          height: "50vh",
+          height: "55vh",
           marginLeft: "auto",
           marginRight: "auto",
           marginTop: "100px",
@@ -90,10 +90,16 @@ const LoginPage = () => {
             Log In
           </button>
         </div>
+        <div>
+          <hr
+            className="fw-bold"
+            style={{ marginTop: "245px", width: "250px", marginLeft: "105px" }}
+          ></hr>
+        </div>
         <span
           style={{
             position: "absolute",
-            top: "240px",
+            top: "255px",
             left: "150px",
           }}
         >
@@ -102,7 +108,7 @@ const LoginPage = () => {
         <span
           style={{
             position: "absolute",
-            top: "240px",
+            top: "260px",
             left: "180px",
           }}
         >
