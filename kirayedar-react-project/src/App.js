@@ -29,7 +29,7 @@ function App() {
                 left: "30px"
               }}
             >
-              KIRAYAEDAR
+              BHADA
             </span>
           </div>
         </nav>
