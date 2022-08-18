@@ -1,15 +1,12 @@
 import React from "react";
+import Table from "../table.components";
 
-const Dashboard = () => {
-  const FlatDetails = [{
-    flname: "Flor Enclave",
-    RentDue: 3000
-  },
-    {
-      flname: "Panchsheel",
-      RentDue: 4000
-    }]
-  const Tdue = FlatDetails[0].RentDue + FlatDetails[1].RentDue;
+const Dashboard = (props) => {
+  const flat = props.FlatDetails;
+  let Tdue = 0;
+  for (const flats of flat) {
+    Tdue = flats.RentDue + Tdue;
+  }
   return (
     <>
       <div className="container fluid mt-4">
@@ -77,22 +74,15 @@ const Dashboard = () => {
             >
               <thead className="table-primary">
                 <tr>
-                  <th style={{ fontSize: "20px" }}>Flats</th>
+                  <th className="colSpan-3" style={{ fontSize: "20px" }}>
+                    Flats
+                  </th>
                   <th style={{ fontSize: "20px" }}>Dues</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>{FlatDetails[0].flname}</td>
-                  <td>Rs.{FlatDetails[0].RentDue}</td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr>
-                  <td>{FlatDetails[1].flname}</td>
-                  <td>Rs.{FlatDetails[1].RentDue}</td>
-                </tr>
-              </tbody>
+              <Table flat={flat[0]}></Table>
+              <Table flat={flat[1]}></Table>
+              <Table flat={flat[2]}></Table>
             </table>
           </div>
         </div>

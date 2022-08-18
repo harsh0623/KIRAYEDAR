@@ -8,6 +8,19 @@ import SignUpPage from './components/pages/signupPage.components';
 
 
 function App() {
+  const FlatDetails = [{
+    flname:"Flora Enclave",
+    RentDue: 2000
+  },
+    {
+    flname:"Panchsheel",
+    RentDue:4000
+    },
+    {
+      flname:"Gaur Homes",
+      RentDue:2000
+  }
+  ]
   return (
     <>
 
@@ -16,7 +29,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LoginPage />}></Route>
           <Route path='SignUp' element={<SignUpPage />}></Route>
-          <Route path='dashboard' element={<Dashboard />}></Route>
+          <Route path='dashboard' element={<Dashboard FlatDetails={ FlatDetails } />}></Route>
         </Routes>
       </BrowserRouter>
     </>
