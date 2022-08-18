@@ -1,8 +1,16 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
-  const test = () => "";
+  const [ useInfo, setInfo ] = useState({
+    email: null,
+    password: null
+  });
+  const HandleInputChange = (event) => {
+    setInfo({ [event.target.id]: event.target.value })
+  };
+  console.log(useInfo);
   return (
     <>
       {" "}
@@ -30,7 +38,7 @@ const LoginPage = () => {
         >
           Log In
         </span>
-        <form onSubmit={test}>
+        <form onSubmit={HandleInputChange}>
           <div className="form-group">
             <div
               className="row"
@@ -48,7 +56,7 @@ const LoginPage = () => {
                 id="email"
                 type="email"
                 placeholder="Email"
-                onChange={test}
+                onChange={HandleInputChange}
               />
             </div>
             <div
@@ -67,7 +75,7 @@ const LoginPage = () => {
                 type="password"
                 id="password"
                 placeholder="Password"
-                onChange={test}
+                onChange={HandleInputChange}
               />
             </div>
           </div>
@@ -114,7 +122,7 @@ const LoginPage = () => {
             <button
               type="submit"
               className="btn btn-primary mt-4"
-              style={{ width: "100px" }}
+              style={{ width: "120px" }}
             >
               Sign Up
             </button>
