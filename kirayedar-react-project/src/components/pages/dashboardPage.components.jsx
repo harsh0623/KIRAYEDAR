@@ -86,6 +86,15 @@ const Dashboard = (props) => {
             </table>
           </div>
         </div>
+        <span style={{ position: "relative", left: "95%", bottom: "60px" }}>
+          <button
+            type="submit"
+            className="btn btn-primary mt-4"
+            style={{ width: "120px" }}
+          >
+            ADD FLAT
+          </button>
+        </span>
       </div>
     </>
   );

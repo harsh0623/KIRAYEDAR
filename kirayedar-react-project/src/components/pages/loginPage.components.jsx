@@ -8,7 +8,7 @@ const LoginPage = () => {
     password: null
   });
   const HandleInputChange = (event) => {
-    setInfo({ [event.target.id]: event.target.value })
+    setInfo({ email : event.target.value, password: event.target.value });
   };
   console.log(useInfo);
   return (
