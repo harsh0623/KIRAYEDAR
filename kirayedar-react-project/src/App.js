@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import AddFlat from './components/AddFlat.components';
 import HeaderComponent from "./components/header.components";
 import Dashboard from './components/pages/dashboardPage.components';
 import LoginPage from './components/pages/loginPage.components';
@@ -29,7 +30,8 @@ function App() {
         <Routes>
           <Route path='/' element={<LoginPage />}></Route>
           <Route path='SignUp' element={<SignUpPage />}></Route>
-          <Route path='dashboard' element={<Dashboard FlatDetails={ FlatDetails } />}></Route>
+          <Route path='dashboard' element={<Dashboard FlatDetails={FlatDetails} />}></Route>
+          <Route path='addflat' element={<AddFlat/>}></Route>
         </Routes>
       </BrowserRouter>
     </>

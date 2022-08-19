@@ -1,5 +1,6 @@
 import React from "react";
-import Table from "../table.components";
+import Table from "../Dashboardtable.components";
+import { Link } from "react-router-dom";
 
 const Dashboard = (props) => {
   const flat = props.FlatDetails;
@@ -86,15 +87,14 @@ const Dashboard = (props) => {
             </table>
           </div>
         </div>
-        <span style={{ position: "relative", left: "95%", bottom: "60px" }}>
-          <button
-            type="submit"
-            className="btn btn-primary mt-4"
-            style={{ width: "120px" }}
-          >
-            ADD FLAT
-          </button>
-        </span>
+        <Link to="/addflat">
+          {" "}
+          <span style={{ position: "relative", left: "95%", bottom: "60px" }}>
+            <button type="submit" className="btn btn-primary  mt-4">
+              ADD FLAT
+            </button>
+          </span>
+        </Link>
       </div>
     </>
   );
