@@ -5,13 +5,14 @@ import HeaderComponent from "./components/header.components";
 import Dashboard from './components/pages/dashboardPage.components';
 import LoginPage from './components/pages/loginPage.components';
 import SignUpPage from './components/pages/signupPage.components';
+import TransactionPage from './components/pages/transactionPage.components';
 
 
 
 function App() {
   const FlatDetails = [{
     flname:"Flora Enclave",
-    RentDue: 2000
+    RentDue: 5000
   },
     {
     flname:"Panchsheel",
@@ -22,6 +23,36 @@ function App() {
       RentDue:2000
   }
   ]
+  const Entries = [{
+    flname: "Flora enclave",
+    Address:"GangaPuram,Ghaziabad",
+    contact: 8956743928,
+    Rent: "10000",
+    RentDue: 5000,
+    Electricity_consume: 115,
+    security: 10000,
+    shift:"17-02-2022"
+  },
+    {
+      flname: "Gaur Homes",
+      Address: "GovindPuram,Ghaziabad",
+      contact: 8973453928,
+      Rent: "12000",
+      RentDue: 2000,
+      Electricity_consume: 125,
+      security: 12000,
+      shift: "7-03-2022"
+    }]
+  const payments = [{
+    date: "15-04-2022",
+    name: "Harsh",
+    amountPaid:10000
+  },
+    {
+    date: "15-03-2022",
+    name: "Harsh",
+    amountPaid: 8000
+  } ]
   return (
     <>
 
@@ -31,7 +62,8 @@ function App() {
           <Route path='/' element={<LoginPage />}></Route>
           <Route path='SignUp' element={<SignUpPage />}></Route>
           <Route path='dashboard' element={<Dashboard FlatDetails={FlatDetails} />}></Route>
-          <Route path='addflat' element={<AddFlat/>}></Route>
+          <Route path='addflat' element={<AddFlat />}></Route>
+          <Route path='transactions' element={<TransactionPage Payments={ payments} Entries={ Entries} />}></Route>
         </Routes>
       </BrowserRouter>
     </>

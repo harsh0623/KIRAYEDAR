@@ -1,6 +1,6 @@
 import React from "react";
-import Table from "../Dashboardtable.components";
-import { Link } from "react-router-dom";
+import Table from "../tables/Dashboardtable.components";
+import { Link } from "react-router-dom"; 
 
 const Dashboard = (props) => {
   const flat = props.FlatDetails;
@@ -66,7 +66,7 @@ const Dashboard = (props) => {
           </div>
           <div className="col-8">
             <table
-              className="table table-bordered "
+              className="table table-bordered table-hover"
               style={{
                 width: "50%",
                 position: "absolute",
@@ -74,14 +74,12 @@ const Dashboard = (props) => {
               }}
             >
               <thead className="table-primary">
-                <tr>
-                  <th className="colSpan-3" style={{ fontSize: "20px" }}>
-                    Flats
-                  </th>
-                  <th style={{ fontSize: "20px" }}>Dues</th>
+                <tr style={{ textAlign: "center", fontSize: "20px" }}>
+                  <th style={{ width: "50%" }}>Flats</th>
+                  <th style={{ width: "50%" }}>Dues</th>
                 </tr>
               </thead>
-              <Table flat={flat[0]}></Table>
+              <Table  flat={flat[0]}></Table>
               <Table flat={flat[1]}></Table>
               <Table flat={flat[2]}></Table>
             </table>

@@ -8,15 +8,18 @@ export default function HeaderComponent() {
       style={{ width: "100vw", height: "70px", position: "relative" }}
     >
       <div className="container-fluid">
-        <img
-          src="https://st.depositphotos.com/2808409/3926/v/380/depositphotos_39264255-stock-illustration-flat-house-icon-background.jpg?forcejpeg=true"
-          style={{
-            width: "50px",
-            position: "absolute",
-            top: "15px",
-            left: "30px",
-          }}
-        />
+        <Link to="/">
+          {" "}
+          <img
+            src="https://st.depositphotos.com/2808409/3926/v/380/depositphotos_39264255-stock-illustration-flat-house-icon-background.jpg?forcejpeg=true"
+            style={{
+              width: "50px",
+              position: "absolute",
+              top: "15px",
+              left: "30px",
+            }}
+          />
+        </Link>
         <span
           style={{
             color: "white",
@@ -35,12 +38,25 @@ export default function HeaderComponent() {
           style={{
             position: "absolute",
             top: "20px",
-            left: "75%",
+            left: "73%",
             color: "white",
             fontSize: "25px",
           }}
         >
           Dashboard
+        </div>
+      </Link>
+      <Link to="/transactions">
+        <div
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "85%",
+            color: "white",
+            fontSize: "25px",
+          }}
+        >
+          Transactions
         </div>
       </Link>
     </nav>

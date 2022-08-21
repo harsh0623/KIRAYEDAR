@@ -3,14 +3,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
-  const [ useInfo, setInfo ] = useState({
+  const [useInfo, setInfo] = useState({
     email: null,
-    password: null
+    password: null,
   });
   const HandleInputChange = (event) => {
-    setInfo([event.target.id]=event.target.value );
+    setInfo({ [event.target.id]: event.target.value });
   };
-  console.log(useInfo);
+
   return (
     <>
       {" "}

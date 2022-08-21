@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Table = ({flat}) => {
-    console.log(flat);
+    
     return (
-        <tbody>
+        <tbody  style={{textAlign:"center"}}>
             <tr>
                 <td>{flat.flname}</td>
                 <td>Rs.{flat.RentDue}</td>
