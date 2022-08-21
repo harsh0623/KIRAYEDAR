@@ -33,7 +33,7 @@ const LoginPage = () => {
             color: "#2D3A86",
             position: "absolute",
             top: "3px",
-            left: "180px",
+            left: "190px",
           }}
         >
           Log In

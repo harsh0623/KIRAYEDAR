@@ -41,6 +41,7 @@ export default function HeaderComponent() {
             left: "73%",
             color: "white",
             fontSize: "25px",
+            textDecoration: "underline",
           }}
         >
           Dashboard
@@ -51,12 +52,13 @@ export default function HeaderComponent() {
           style={{
             position: "absolute",
             top: "20px",
-            left: "85%",
+            left: "86%",
             color: "white",
             fontSize: "25px",
+            textDecoration: "underline",
           }}
         >
-          Transactions
+          Flats
         </div>
       </Link>
     </nav>
