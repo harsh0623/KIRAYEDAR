@@ -19,7 +19,7 @@ const TransactionPage = (props) => {
       <MDBTable
         hover
         className="  ms-auto me-auto mt-3"
-        style={{ width: "96%", border: "1px solid black" }}
+        style={{ width: "96%", border: "1px solid lightBlue" }}
       >
         <MDBTableHead className="table-primary">
           <tr style={{ textAlign: "center" }}>

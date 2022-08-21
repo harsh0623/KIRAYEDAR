@@ -36,10 +36,10 @@ function App() {
   const payments = [{
     date: "15-04-2022",
     name: "Harsh",
-    amountPaid:10000
+    amountPaid:7000
   },
     {
-    date: "15-03-2022",
+    date: "17-03-2022",
     name: "Harsh",
     amountPaid: 8000
   } ]
