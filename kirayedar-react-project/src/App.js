@@ -32,17 +32,7 @@ function App() {
     Electricity_consume: 115,
     security: 10000,
     shift:"17-02-2022"
-  },
-    {
-      flname: "Gaur Homes",
-      Address: "GovindPuram,Ghaziabad",
-      contact: 8973453928,
-      Rent: "12000",
-      RentDue: 2000,
-      Electricity_consume: 125,
-      security: 12000,
-      shift: "7-03-2022"
-    }]
+  }]
   const payments = [{
     date: "15-04-2022",
     name: "Harsh",
