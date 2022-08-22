@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "../tables/Dashboardtable.components";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const Dashboard = (props) => {
   const flat = props.FlatDetails;
@@ -22,6 +22,15 @@ const Dashboard = (props) => {
                 top: "10px",
               }}
             >
+              <img
+                src="https://cdn4.vectorstock.com/i/thumb-large/53/28/indian-rupee-coin-official-currency-india-vector-34485328.jpg"
+                style={{
+                  width: "40px",
+                  position: "relative",
+                  left: "30px",
+                  top: "37px",
+                }}
+              ></img>
               <span
                 style={{
                   position: "absolute",
@@ -52,6 +61,15 @@ const Dashboard = (props) => {
               >
                 Total Dues
               </span>
+              <img
+                src="https://media.istockphoto.com/vectors/rupee-flat-icon-sign-vector-paper-money-symbol-isolated-on-white-vector-id1347090437?b=1&k=20&m=1347090437&s=612x612&w=0&h=v-PMtmWQY16Pa2ZXBUjYVJ1EnKJKNDC8V8_yzrBt-T0="
+                style={{
+                  width: "60px",
+                  position: "relative",
+                  top: "60px",
+                  left: "20px",
+                }}
+              ></img>
               <span
                 style={{
                   position: "absolute",
@@ -79,7 +97,7 @@ const Dashboard = (props) => {
                   <th style={{ width: "50%" }}>Dues</th>
                 </tr>
               </thead>
-              <Table  flat={flat[0]}></Table>
+              <Table flat={flat[0]}></Table>
               <Table flat={flat[1]}></Table>
               <Table flat={flat[2]}></Table>
             </table>
@@ -88,7 +106,7 @@ const Dashboard = (props) => {
         <Link to="/addflat">
           {" "}
           <span style={{ position: "relative", left: "95%", bottom: "60px" }}>
-            <button type="submit" className="btn btn-primary  mt-4">
+            <button type="submit" className="btn btn-primary  mt-4" >
               ADD FLAT
             </button>
           </span>

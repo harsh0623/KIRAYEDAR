@@ -1,10 +1,11 @@
 import React from "react";
-import { MDBTable, MDBTableHead, MDBBtn, MDBTableBody } from "mdb-react-ui-kit";
+import { MDBTable, MDBTableHead, MDBBtn } from "mdb-react-ui-kit";
 import EntriesTable from "../tables/EntriesTable.components";
 import PaymentTable from "../tables/paymentTable.component";
 import RentTable from "../tables/RentTable.components";
 
 const TransactionPage = (props) => {
+  const test = () => "";
   const Entries = props.Entries;
   const Payments = props.Payments;
   return (
@@ -56,7 +57,9 @@ const TransactionPage = (props) => {
         <h4>Payment History</h4>
         <MDBBtn
           outline
-          style={{ position: "relative", left: "78%", bottom: "35px" }}
+          data-toggle="modal"
+          data-target="#exampleModal2"
+          style={{ position: "relative", left: "77%", bottom: "35px" }}
         >
           Add a New Payment
         </MDBBtn>
@@ -65,7 +68,7 @@ const TransactionPage = (props) => {
             fontSize: "20px",
             color: "blue",
             position: "relative",
-            left: "79%",
+            left: "78%",
             bottom: "35px",
           }}
         >
@@ -98,10 +101,12 @@ const TransactionPage = (props) => {
         <h4 style={{ position: "relative", bottom: "35px" }}>Rent History</h4>
         <MDBBtn
           outline
+          data-toggle="modal"
+          data-target="#exampleModal"
           style={{
             position: "relative",
-            width: "177px",
-            left: "78%",
+            width: "175px",
+            left: "77%",
             bottom: "65px",
           }}
         >
@@ -113,7 +118,7 @@ const TransactionPage = (props) => {
             fontSize: "20px",
             color: "blue",
             position: "relative",
-            left: "79%",
+            left: "78%",
             bottom: "65px",
           }}
         >
@@ -127,28 +132,16 @@ const TransactionPage = (props) => {
       >
         <MDBTableHead className="table-primary">
           <tr style={{ textAlign: "center" }}>
-            <th
-              scope="col"
-              rowSpan="2"
-              style={{ width: "19%", paddingBottom: "20px" }}
-            >
+            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
               Date
             </th>
-            <th
-              scope="col"
-              rowSpan="2"
-              style={{ width: "19%", paddingBottom: "20px" }}
-            >
+            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
               Flat No.
             </th>
-            <th
-              scope="col"
-              rowSpan="2"
-              style={{ width: "19%", paddingBottom: "20px" }}
-            >
+            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
               Rent Amount
             </th>
-            <th scope="col" rowSpan="2" colSpan="2" style={{ width: "20%" }}>
+            <th scope="col" rowSpan={2} colSpan="2" style={{ width: "20%" }}>
               Electricity
               <th
                 style={{
@@ -173,11 +166,7 @@ const TransactionPage = (props) => {
                 price
               </th>
             </th>
-            <th
-              scope="col"
-              rowSpan="2"
-              style={{ width: "19%", paddingBottom: "20px" }}
-            >
+            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
               Total
             </th>
           </tr>
@@ -185,6 +174,247 @@ const TransactionPage = (props) => {
         <RentTable Entries={Entries[0]} payments={Payments[0]}></RentTable>
         <RentTable Entries={Entries[1]} payments={Payments[1]}></RentTable>
       </MDBTable>
+
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+        style={{ marginTop: "80px" }}
+      >
+        <div className="modal-dialog modal-lg" role="document">
+          <div className="modal-content" style={{ height: "65vh" }}>
+            <div style={{ position: "relative", top: "10px", left: "20px" }}>
+              <h3>Add Rent </h3>
+            </div>
+            <form onSubmit={test}>
+              <div className="form-group">
+                <div
+                  className="row"
+                  style={{ position: "relative", top: "20px", left: "30px" }}
+                >
+                  <label htmlFor="rent">Rent*</label>
+                  <input
+                    style={{ width: "90%" }}
+                    type="number"
+                    placeholder="Rent"
+                    id="rent"
+                    onChange={test}
+                  />
+                </div>
+                <div
+                  className="row"
+                  style={{ position: "relative", top: "33px", left: "30px" }}
+                >
+                  <label htmlFor="unitstart">Unit Start*</label>
+                  <input
+                    style={{ width: "45%" }}
+                    type="number"
+                    placeholder="Unit Start "
+                    id="unitstart"
+                    onChange={test}
+                  />
+                  <label
+                    style={{
+                      position: "relative",
+                      bottom: "55px",
+                      left: "46%",
+                    }}
+                    htmlFor="unitend"
+                  >
+                    Unit End*
+                  </label>
+                  <input
+                    style={{
+                      position: "relative",
+                      bottom: "54px",
+                      left: "46%",
+                      width: "44%",
+                    }}
+                    type="number"
+                    placeholder="Unit End "
+                    id="unitend"
+                    onChange={test}
+                  />
+                </div>
+                <div
+                  className="row"
+                  style={{ position: "relative", top: "-10px", left: "30px" }}
+                >
+                  <label htmlFor="totalunit">Total Unit*</label>
+                  <input
+                    style={{ width: "45%" }}
+                    type="number"
+                    placeholder="Total Unit"
+                    id="totalunit"
+                    onChange={test}
+                  />
+                  <label
+                    style={{
+                      position: "relative",
+                      bottom: "55px",
+                      left: "46%",
+                    }}
+                    htmlFor="bill"
+                  >
+                    Bill*
+                  </label>
+                  <input
+                    style={{
+                      position: "relative",
+                      bottom: "54px",
+                      left: "46%",
+                      width: "44%",
+                    }}
+                    type="number"
+                    placeholder="Bill "
+                    id="bill"
+                    onChange={test}
+                  />
+                </div>
+                <div
+                  className="row"
+                  style={{ position: "relative", top: "-55px", left: "30px" }}
+                >
+                  <label htmlFor="total">Total*</label>
+                  <input
+                    style={{ width: "60%" }}
+                    type="number"
+                    placeholder="Total"
+                    id="total"
+                    onChange={test}
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="btn-secondary btn btn-bordered"
+                  data-dismiss="modal"
+                  style={{
+                    width: "150px",
+                    position: "relative",
+                    left: "59%",
+                    bottom: "10px",
+                  }}
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  style={{
+                    width: "150px",
+                    position: "relative",
+                    left: "61%",
+                    bottom: "10px",
+                  }}
+                >
+                  Save changes
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="modal fade "
+        id="exampleModal2"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="staticBackdropLabell"
+        aria-hidden="true"
+        data-bs-keyboard="false"
+        data-bs-backdrop="static"
+        style={{ marginTop: "100px" }}
+      >
+        <div className="modal-dialog modal-lg" role="document">
+          <div className="modal-content" style={{ height: "45vh" }}>
+            <div style={{ position: "relative", top: "10px", left: "20px" }}>
+              <h3>Add Payments </h3>
+            </div>
+            <form onSubmit={test}>
+              <div className="form-group">
+                <div
+                  className="row"
+                  style={{ position: "relative", top: "20px", left: "30px" }}
+                >
+                  <label htmlFor="rent">Date*</label>
+                  <input
+                    style={{ width: "90%" }}
+                    type="date"
+                    placeholder="Date"
+                    id="date"
+                    onChange={test}
+                  />
+                </div>
+                <div
+                  className="row"
+                  style={{ position: "relative", top: "33px", left: "30px" }}
+                >
+                  <label htmlFor="name">Name*</label>
+                  <input
+                    style={{ width: "45%" }}
+                    type="text"
+                    placeholder="Name "
+                    id="name"
+                    onChange={test}
+                  />
+                  <label
+                    style={{
+                      position: "relative",
+                      bottom: "55px",
+                      left: "46%",
+                    }}
+                    htmlFor="amntpaid"
+                  >
+                    Amount Paid*
+                  </label>
+                  <input
+                    style={{
+                      position: "relative",
+                      bottom: "54px",
+                      left: "46%",
+                      width: "44%",
+                    }}
+                    type="number"
+                    placeholder="Amount Paid "
+                    id="amntpaid"
+                    onChange={test}
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  className="btn-secondary btn btn-bordered"
+                  data-dismiss="modal"
+                  style={{
+                    width: "150px",
+                    position: "relative",
+                    left: "59%",
+                    top: "20px",
+                  }}
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  style={{
+                    width: "150px",
+                    position: "relative",
+                    left: "61%",
+                    top: "20px",
+                  }}
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
