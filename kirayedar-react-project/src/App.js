@@ -32,6 +32,11 @@ function App() {
     Electricity_consume: 115,
     security: 10000,
     shift:"17-02-2022"
+  },
+    {
+      flname:"Flora Enclave",
+      Electricity_consume: 100,
+    Rent:10000
   }]
   const payments = [{
     date: "15-04-2022",
@@ -42,7 +47,7 @@ function App() {
     date: "17-03-2022",
     name: "Harsh",
     amountPaid: 8000
-  } ]
+    }]
   return (
     <>
 
