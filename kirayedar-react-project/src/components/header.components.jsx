@@ -12,6 +12,7 @@ export default function HeaderComponent() {
           {" "}
           <img
             src="https://st.depositphotos.com/2808409/3926/v/380/depositphotos_39264255-stock-illustration-flat-house-icon-background.jpg?forcejpeg=true"
+            alt="website logo"
             style={{
               width: "50px",
               position: "absolute",

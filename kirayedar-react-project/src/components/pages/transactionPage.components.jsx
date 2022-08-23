@@ -1,5 +1,5 @@
 import React from "react";
-import { MDBTable, MDBTableHead, MDBBtn } from "mdb-react-ui-kit";
+import { MDBTable, MDBTableHead } from "mdb-react-ui-kit";
 import EntriesTable from "../tables/EntriesTable.components";
 import PaymentTable from "../tables/paymentTable.component";
 import RentTable from "../tables/RentTable.components";
@@ -10,14 +10,28 @@ const TransactionPage = (props) => {
   const Payments = props.Payments;
   return (
     <div>
+      {/*This is the edit entry button*/}
       <div>
-        <MDBBtn
-          rounded
-          style={{ position: "relative", left: "90%", top: "5px" }}
+        <button
+          type="button"
+          style={{
+            position: "relative",
+            left: "87%",
+            top: "5px",
+            backgroundColor: "blue",
+            borderColor: "#2196F3",
+            border: "1px solid",
+            height: "6vh",
+            width: "11vw",
+            borderRadius: "5px",
+            color: "white",
+            fontSize: "18px",
+          }}
         >
           Edit Entries
-        </MDBBtn>
+        </button>
       </div>
+      {/*This is the entry table*/}
       <MDBTable
         hover
         className="  ms-auto me-auto mt-3"
@@ -53,16 +67,28 @@ const TransactionPage = (props) => {
         </MDBTableHead>
         <EntriesTable entries={Entries[0]}></EntriesTable>
       </MDBTable>
-      <div className="ms-4">
+      {/*This is the add payment and view all container*/}
+      <div className="ms-4" data-toggle="modal" data-target="#ViewPaymentModal">
         <h4>Payment History</h4>
-        <MDBBtn
-          outline
+        <button
+          type="button"
           data-toggle="modal"
           data-target="#exampleModal2"
-          style={{ position: "relative", left: "77%", bottom: "35px" }}
+          style={{
+            position: "relative",
+            left: "77%",
+            bottom: "35px",
+            background: "white",
+            borderColor: "#2196F3",
+            border: "1px solid",
+            color: "blue",
+            height: "6vh",
+            width: "13vw",
+            borderRadius: "5px",
+          }}
         >
           Add a New Payment
-        </MDBBtn>
+        </button>
         <span
           style={{
             fontSize: "20px",
@@ -75,6 +101,7 @@ const TransactionPage = (props) => {
           View All
         </span>
       </div>
+      {/*This is the Payments table*/}
       <MDBTable
         bordered
         hover
@@ -97,23 +124,32 @@ const TransactionPage = (props) => {
         <PaymentTable payments={Payments[0]}></PaymentTable>
         <PaymentTable payments={Payments[1]}></PaymentTable>
       </MDBTable>
+      {/*This is the add rent and view all container*/}
       <div className="ms-4">
         <h4 style={{ position: "relative", bottom: "35px" }}>Rent History</h4>
-        <MDBBtn
-          outline
+        <button
+          type="button"
           data-toggle="modal"
           data-target="#exampleModal"
           style={{
             position: "relative",
-            width: "175px",
             left: "77%",
             bottom: "65px",
+            background: "white",
+            borderColor: "#2196F3",
+            border: "1px solid",
+            color: "blue",
+            height: "6vh",
+            width: "13vw",
+            borderRadius: "5px",
           }}
         >
           Add a New Rent
-        </MDBBtn>
+        </button>
 
         <span
+          data-toggle="modal"
+          data-target="#ViewModal"
           style={{
             fontSize: "20px",
             color: "blue",
@@ -125,6 +161,7 @@ const TransactionPage = (props) => {
           View All
         </span>
       </div>
+      {/*This is the Rent table*/}
       <MDBTable
         bordered
         className="  ms-auto me-auto "
@@ -174,7 +211,7 @@ const TransactionPage = (props) => {
         <RentTable Entries={Entries[0]} payments={Payments[0]}></RentTable>
         <RentTable Entries={Entries[1]} payments={Payments[1]}></RentTable>
       </MDBTable>
-
+      {/*This is the Modal pop up for add Rent*/}
       <div
         className="modal fade"
         id="exampleModal"
@@ -317,16 +354,14 @@ const TransactionPage = (props) => {
           </div>
         </div>
       </div>
-
+      {/*This is the Modal pop up for add payments*/}
       <div
-        className="modal fade "
+        className="modal fade"
         id="exampleModal2"
         tabIndex="-1"
         role="dialog"
         aria-labelledby="staticBackdropLabell"
         aria-hidden="true"
-        data-bs-keyboard="false"
-        data-bs-backdrop="static"
         style={{ marginTop: "100px" }}
       >
         <div className="modal-dialog modal-lg" role="document">
@@ -412,6 +447,142 @@ const TransactionPage = (props) => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      </div>
+      {/*This is the view all rent deatils pop up */}
+      <div
+        className="modal fade"
+        id="ViewModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="staticBackdropLabell"
+        aria-hidden="true"
+        style={{ marginTop: "100px", marginLeft: "-100px" }}
+      >
+        <div className="modal-dialog modal-lg" role="document">
+          <div
+            className="modal-content"
+            style={{ height: "50vh", width: "78vw" }}
+          >
+            <div style={{ position: "relative", top: "20px", left: "20px" }}>
+              <h5>Rent History</h5>
+            </div>
+            <MDBTable
+              bordered
+              className="  ms-auto me-auto "
+              style={{ width: "96%", position: "relative", top: "25px" }}
+            >
+              <MDBTableHead className="table-primary">
+                <tr style={{ textAlign: "center" }}>
+                  <th
+                    scope="col"
+                    style={{ width: "19%", paddingBottom: "20px" }}
+                  >
+                    Date
+                  </th>
+                  <th
+                    scope="col"
+                    style={{ width: "19%", paddingBottom: "20px" }}
+                  >
+                    Flat No.
+                  </th>
+                  <th
+                    scope="col"
+                    style={{ width: "19%", paddingBottom: "20px" }}
+                  >
+                    Rent Amount
+                  </th>
+                  <th
+                    scope="col"
+                    rowSpan={2}
+                    colSpan="2"
+                    style={{ width: "20%" }}
+                  >
+                    Electricity
+                    <th
+                      style={{
+                        textAlign: "center",
+                        width: "50%",
+                        position: "relative",
+                        left: "22px",
+                      }}
+                    >
+                      {" "}
+                      units
+                    </th>
+                    <th
+                      style={{
+                        textAlign: "center",
+                        width: "50%",
+                        position: "relative",
+                        left: "85px",
+                      }}
+                    >
+                      {" "}
+                      price
+                    </th>
+                  </th>
+                  <th
+                    scope="col"
+                    style={{ width: "19%", paddingBottom: "20px" }}
+                  >
+                    Total
+                  </th>
+                </tr>
+              </MDBTableHead>
+              <RentTable
+                Entries={Entries[0]}
+                payments={Payments[0]}
+              ></RentTable>
+              <RentTable
+                Entries={Entries[1]}
+                payments={Payments[1]}
+              ></RentTable>
+            </MDBTable>
+          </div>
+        </div>
+      </div>
+      {/*This is the view all payments details pop up */}
+      <div
+        className="modal fade"
+        id="ViewPaymentModal"
+        tabIndex="-1"
+        role="dialog"
+        aria-labelledby="staticBackdropLabell"
+        aria-hidden="true"
+        style={{ marginTop: "100px", marginLeft: "-100px" }}
+      >
+        <div className="modal-dialog modal-lg" role="document">
+          <div
+            className="modal-content"
+            style={{ height: "40vh", width: "78vw" }}
+          >
+            <div style={{ position: "relative", top: "20px", left: "20px" }}>
+              <h5>Payment History</h5>
+            </div>
+            <MDBTable
+              bordered
+              hover
+              className="  ms-auto me-auto mt-3"
+              style={{ width: "96%", position: "relative", top: "10px" }}
+            >
+              <MDBTableHead className="table-primary">
+                <tr style={{ textAlign: "center" }}>
+                  <th scope="col" style={{ width: "32%" }}>
+                    Date
+                  </th>
+                  <th scope="col" style={{ width: "32%" }}>
+                    Name
+                  </th>
+                  <th scope="col" style={{ width: "32%" }}>
+                    Amount Paid
+                  </th>
+                </tr>
+              </MDBTableHead>
+              <PaymentTable payments={Payments[0]}></PaymentTable>
+              <PaymentTable payments={Payments[1]}></PaymentTable>
+            </MDBTable>
           </div>
         </div>
       </div>
