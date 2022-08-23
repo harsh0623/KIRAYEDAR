@@ -68,7 +68,7 @@ const TransactionPage = (props) => {
         <EntriesTable entries={Entries[0]}></EntriesTable>
       </MDBTable>
       {/*This is the add payment and view all container*/}
-      <div className="ms-4" data-toggle="modal" data-target="#ViewPaymentModal">
+      <div className="ms-4">
         <h4>Payment History</h4>
         <button
           type="button"
@@ -90,6 +90,8 @@ const TransactionPage = (props) => {
           Add a New Payment
         </button>
         <span
+          data-toggle="modal"
+          data-target="#ViewPaymentModal"
           style={{
             fontSize: "20px",
             color: "blue",
