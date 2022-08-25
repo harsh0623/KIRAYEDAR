@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import HeaderComponent from "./components/header.components";
@@ -9,7 +10,7 @@ import TransactionPage from './components/pages/transactionPage.components';
 
 
 function App() {
-  const FlatDetails = [{
+  let [ FlatDetails, addFlat ] = useState([{
     flname:"Flora Enclave",
     RentDue: 5000
   },
@@ -21,7 +22,10 @@ function App() {
       flname:"Gaur Homes",
       RentDue:2000
   }
-  ]
+  ])
+  const addFlatFromForm=(Flat)=>{
+    addFlat([...FlatDetails,Flat])
+  }
   const Entries = [{
     flname: "Flora enclave",
     Address:"GangaPuram,Ghaziabad",
@@ -47,6 +51,7 @@ function App() {
     name: "Harsh",
     amountPaid: 8000
     }]
+  
   return (
     <>
 
@@ -55,7 +60,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LoginPage />}></Route>
           <Route path='SignUp' element={<SignUpPage />}></Route>
-          <Route path='dashboard' element={<Dashboard FlatDetails={FlatDetails} />}></Route>
+          <Route path='dashboard' element={<Dashboard addFlatToTable={ addFlatFromForm } FlatDetails={FlatDetails} />}></Route>
           <Route path='transactions' element={<TransactionPage Payments={ payments} Entries={ Entries} />}></Route>
         </Routes>
       </BrowserRouter>

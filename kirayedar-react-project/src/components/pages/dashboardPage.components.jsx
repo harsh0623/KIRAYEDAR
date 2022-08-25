@@ -1,14 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import Table from "../tables/Dashboardtable.components";
 
 
 const Dashboard = (props) => {
-  const test = () => "";
+
+  let [Flat,setFlat] = useState({
+    flname: null,
+    RentDue: null
+  })
   const flat = props.FlatDetails;
   let Tdue = 0;
   for (const flats of flat) {
     Tdue = flats.RentDue + Tdue;
   }
+  const HandleInputChange = (event) => {
+    setFlat(() => ({ ...Flat, [event.target.id]: event.target.value }));
+  };
+  const addFlat = () => {
+    console.log(Flat);
+  }
+  
   return (
     <>
       <div className="container fluid mt-4">
@@ -108,7 +120,7 @@ const Dashboard = (props) => {
             </table>
           </div>
         </div>
-        { /* This is the add flat button*/}
+        {/* This is the add flat button*/}
         <span style={{ position: "relative", left: "95%", bottom: "60px" }}>
           <button
             type="submit"
@@ -120,7 +132,7 @@ const Dashboard = (props) => {
           </button>
         </span>
       </div>
-      {/*This is the add flat pop up*/ }
+      {/*This is the add flat pop up*/}
       <div
         className="modal fade"
         id="exampleModal3"
@@ -128,14 +140,17 @@ const Dashboard = (props) => {
         role="dialog"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
-        style={{ marginTop: "80px",marginLeft:"70px" }}
+        style={{ marginTop: "80px", marginLeft: "70px" }}
       >
         <div className="modal-dialog modal-lg" role="document">
-          <div className="modal-content" style={{ height: "65vh",width:"47vw" }}>
+          <div
+            className="modal-content"
+            style={{ height: "65vh", width: "47vw" }}
+          >
             <div style={{ position: "absolute", top: "20px", left: "20px" }}>
               <h4>Add Your Flat...</h4>
             </div>
-            <form onSubmit={test}>
+            <form onSubmit={addFlat}>
               <div className="form-group">
                 <div
                   className="row"
@@ -151,7 +166,7 @@ const Dashboard = (props) => {
                     type="text"
                     id="flname"
                     placeholder="Flat Name"
-                    onChange={test}
+                    onChange={HandleInputChange}
                   />
                   <label
                     htmlFor="add"
@@ -173,7 +188,7 @@ const Dashboard = (props) => {
                     type="text"
                     id="add"
                     placeholder="Address"
-                    onChange={test}
+                    onChange={HandleInputChange}
                   />
                 </div>
                 <div
@@ -189,7 +204,7 @@ const Dashboard = (props) => {
                     }}
                     type="text"
                     value="+91"
-                    onChange={test}
+                    onChange={HandleInputChange}
                   />
                   <input
                     style={{
@@ -200,7 +215,7 @@ const Dashboard = (props) => {
                     type="tel"
                     id="Tenum"
                     placeholder="Phone number"
-                    onChange={test}
+                    onChange={HandleInputChange}
                   />
                   <label
                     htmlFor="RPM"
@@ -222,7 +237,7 @@ const Dashboard = (props) => {
                     type="number"
                     id="RPM"
                     placeholder="Rent per month "
-                    onChange={test}
+                    onChange={HandleInputChange}
                   />
                 </div>
               </div>
@@ -236,7 +251,7 @@ const Dashboard = (props) => {
                   type="number"
                   id="elecunit"
                   placeholder="Electricity start unit"
-                  onChange={test}
+                  onChange={HandleInputChange}
                 />
                 <label
                   htmlFor="priunit"
@@ -258,7 +273,7 @@ const Dashboard = (props) => {
                   type="number"
                   id="priunit"
                   placeholder="Electricity price per unit"
-                  onChange={test}
+                  onChange={HandleInputChange}
                 />
               </div>
               <div
@@ -271,7 +286,7 @@ const Dashboard = (props) => {
                   type="number"
                   id="secmoney"
                   placeholder="Security money"
-                  onChange={test}
+                  onChange={HandleInputChange}
                 />
                 <label
                   htmlFor="strdate"
@@ -293,7 +308,7 @@ const Dashboard = (props) => {
                   type="date"
                   id="strdate"
                   placeholder="Start date"
-                  onChange={test}
+                  onChange={HandleInputChange}
                 />
               </div>
               <button
@@ -309,8 +324,8 @@ const Dashboard = (props) => {
               >
                 Close
               </button>
-              <button
-                type="button"
+              <button 
+                type="submit"
                 className="btn btn-primary"
                 style={{
                   width: "150px",
@@ -326,7 +341,7 @@ const Dashboard = (props) => {
         </div>
       </div>
     </>
-  );
+  )
 };
 
 export default Dashboard;

@@ -4,156 +4,139 @@ import { Link } from "react-router-dom";
 const SignUpPage = () => {
   const test = () => "";
   return (
-    <div
-      className="card"
-      style={{
-        width: "42%",
-        height: "61vh",
-        marginLeft: "auto",
-        marginRight: "auto",
-        marginTop: "100px",
-        position: "relative",
-      }}
-    >
-      <span
-        className="fw-bold"
+    <div className="d-flex justify-content-center align-items-center" style={{height:"cac(100vh-100px)"}}>
+      <div
+        className="card mt-5"
         style={{
-          fontSize: "30px",
-          width: "200px",
-          color: "#2D3A86",
-          position: "absolute",
-          top: "3px",
-          left: "230px",
+          width: "35vw",
+          marginLeft: "auto",
+          marginRight: "auto",
         }}
       >
-        Sign Up
-      </span>
-      <form onSubmit={test}>
-        <div className="form-group">
-          <div className="row">
-            <label
-              htmlFor="Fname"
-              style={{ position: "absolute", top: "45px", left: "20px" }}
-            >
-              <b>First Name*</b>
-            </label>
-            <input
+        <div className="container">
+          <div className="row justify-content-center">
+            <span
+              className="fw-bold"
               style={{
-                width: "43%",
-                position: "absolute",
-                top: "70px",
-                left: "30px",
+                fontSize: "30px",
+                width: "200px",
+                color: "#2D3A86",
               }}
-              type="text"
-              placeholder="First Name"
-              id="Fname"
-              onChange={test}
-            />
-            <label
-              htmlFor="Lname"
-              style={{ position: "absolute", top: "45px", left: "48%" }}
             >
-              <b>Last Name*</b>
-            </label>
-            <input
+              Sign Up
+            </span>
+          </div>
+          <form onSubmit={test}>
+            <div className="form-group">
+              <div className="row justify-content-start ms-4">
+                <label htmlFor="Fname" style={{}}>
+                  <b>First Name*</b>
+                </label>
+                <input
+                  style={{
+                    width: "46%",
+                  }}
+                  type="text"
+                  placeholder="First Name"
+                  id="Fname"
+                  onChange={test}
+                />
+                <label
+                  htmlFor="Lname"
+                  style={{ position: "absolute", top: "45px", left: "48%" }}
+                >
+                  <b>Last Name*</b>
+                </label>
+                <input
+                  style={{
+                    width: "40%",
+                    position: "absolute",
+                    top: "70px",
+                    left: "51%",
+                  }}
+                  type="text"
+                  placeholder="Last Name"
+                  id="Lname"
+                  onChange={test}
+                />
+              </div>
+              <div
+                className="row justify-content-center"
+                
+              >
+                <label className="mb-1 mt-2 fw-bold" htmlFor="email" style={{marginLeft:"70px"}}>
+                  Email Address*
+                </label>
+                <input
+                  style={{ width: "450px" }}
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                  onChange={test}
+                />
+              </div>
+              <div
+                className="row justify-content-center"
+                style={{
+                 
+                }}
+              >
+                <label className="mb-1 mt-2 fw-bold" htmlFor="password" style={{marginLeft:"70px"}}>
+                  Password*
+                </label>
+                <input
+                  style={{ width: "450px" }}
+                  type="password"
+                  id="password"
+                  placeholder="Password"
+                  onChange={test}
+                />
+              </div>
+            </div>
+          </form>
+          
+          <div
+            className="row fw-bold mt-2"
+          >
+            <input type="checkbox" id="check" value="Check" onChange={test}  />{" "}
+           <span className="text-end"> By Signing Up you agree to our Terms and Conditions.</span>
+          </div>
+          <div className="row justify-content-center ">
+              <button
+                type="submit"
+                className="btn btn-primary mt-2"
+                style={{ width: "150px" }}
+              >
+                Sign Up
+              </button>
+
+          </div>
+          <div>
+            <hr
+              className="fw-bold"
               style={{
-                width: "43%",
-                position: "absolute",
-                top: "70px",
-                left: "51%",
+                marginTop: "10px",
+                width: "300px",
+                marginLeft: "115px",
               }}
-              type="text"
-              placeholder="Last Name"
-              id="Lname"
-              onChange={test}
-            />
+            ></hr>
           </div>
           <div
-            className="row"
+            className="row fw-bold mb-2"
             style={{
-              position: "absolute",
-              top: "110px",
-              left: "40px",
+             marginLeft:"180px"
             }}
           >
-            <label className="mb-2 " htmlFor="email">
-              <b>EmailAddress*</b>
-            </label>
-            <input
-              style={{ width: "500px" }}
-              id="email"
-              type="email"
-              placeholder="Email"
-              onChange={test}
-            />
-          </div>
-          <div
-            className="row"
-            style={{
-              position: "absolute",
-              top: "180px",
-              left: "40px",
-            }}
-          >
-            <label className="mb-2" htmlFor="password">
-              <b>Password*</b>
-            </label>
-            <input
-              style={{ width: "500px" }}
-              type="password"
-              id="password"
-              placeholder="Password"
-              onChange={test}
-            />
+            Already Signed Up?
+            <div
+              style={{
+                marginLeft: "40px",
+              }}
+            >
+              <Link to="/">Log in</Link>
+            </div>
           </div>
         </div>
-      </form>
-      <div
-        className="fw-bold ms-4"
-        style={{ position: "absolute", top: "250px", left: "50px" }}
-      >
-        <input type="checkbox" id="check" value="Check" onChange={test} /> By
-        Signing Up you agree to our Terms and Conditions.
-      </div>
-      <span
-        style={{
-          position: "absolute",
-          top: "260px",
-          left: "200px",
-        }}
-      >
-        <button
-          type="submit"
-          className="btn btn-primary mt-4"
-          style={{ width: "150px" }}
-        >
-          Sign Up
-        </button>
-      </span>
-      <div>
-        <hr
-          className="fw-bold"
-          style={{ marginTop: "330px", width: "250px", marginLeft: "150px" }}
-        ></hr>
-      </div>
-      <div
-        className="fw-bold"
-        style={{
-          position: "absolute",
-          top: "340px",
-          left: "190px",
-        }}
-      >
-        Already Signed Up?
-        <span
-          style={{
-            position: "absolute",
-            left: "150px",
-            width: "100px",
-          }}
-        >
-          <Link to="/">Log in</Link>
-        </span>
       </div>
     </div>
   );

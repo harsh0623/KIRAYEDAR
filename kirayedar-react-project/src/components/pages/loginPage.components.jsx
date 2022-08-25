@@ -13,121 +13,102 @@ const LoginPage = () => {
 
   return (
     <>
-      {" "}
       <div
-        className="card"
-        style={{
-          width: "35%",
-          height: "55vh",
-          marginLeft: "auto",
-          marginRight: "auto",
-          marginTop: "100px",
-          position: "relative",
-        }}
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: "cal(100vh-70px)" }}
       >
-        <span
-          className="fw-bold"
+        {" "}
+        <div
+          className="card mt-5"
           style={{
-            fontSize: "30px",
-            width: "100px",
-            color: "#2D3A86",
-            position: "absolute",
-            top: "3px",
-            left: "190px",
+            width: "30vw",
+            paddingBottom: "20px",
+            paddingTop: "10px",
+            paddingLeft: "20px",
+            paddingRight: "20px",
           }}
         >
-          Log In
-        </span>
-        <form onSubmit={HandleInputChange}>
-          <div className="form-group">
-            <div
-              className="row"
-              style={{
-                position: "absolute",
-                top: "40px",
-                left: "50px",
-              }}
-            >
-              <label className="mb-2" htmlFor="email">
-                <b>Email:</b>
-              </label>
-              <input
-                style={{ width: "400px" }}
-                id="email"
-                type="email"
-                placeholder="Email"
-                onChange={HandleInputChange}
-              />
+          <div className="container">
+            <div className="row justify-content-center ms-2">
+              <span
+                className="fw-bold "
+                style={{
+                  fontSize: "30px",
+                  width: "150px",
+                  color: "#2D3A86",
+                  
+                }}
+              >
+                Log In
+              </span>
             </div>
-            <div
-              className="row"
-              style={{
-                position: "absolute",
-                top: "120px",
-                left: "50px",
-              }}
-            >
-              <label className="mb-2" htmlFor="password">
-                <b>Password:</b>
-              </label>
-              <input
-                style={{ width: "400px" }}
-                type="password"
-                id="password"
-                placeholder="Password"
-                onChange={HandleInputChange}
-              />
+            <form onSubmit={HandleInputChange}>
+              <div className="form-group">
+                <div className="row">
+                  <label className="mb-1" htmlFor="email">
+                    <b>Email:</b>
+                  </label>
+                  <input
+                    style={{ width: "350px" }}
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    onChange={HandleInputChange}
+                  />
+                </div>
+                <div className="row">
+                  <label className="mt-2" htmlFor="password">
+                    <b>Password:</b>
+                  </label>
+                  <input className="mt-1"
+                    style={{ width: "350px" }}
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    onChange={HandleInputChange}
+                  />
+                </div>
+              </div>
+            </form>
+            <div className="row justify-content-center">
+              <button
+                type="submit"
+                className="btn btn-primary mt-4"
+                style={{ width: "200px" }}
+              >
+                Log In
+              </button>
+            </div>
+            <div>
+              <hr
+                className="fw-bold"
+                style={{
+                  marginTop: "10px",
+                  width: "250px",
+                  marginLeft: "45px",
+                }}
+              ></hr>
+            </div>
+            <div className="row">
+              <span className="text-center">
+                <h6>Haven't signed up yet?</h6>
+              </span>
+            </div>
+            <div className="row justify-content-center">
+              <span className="d-flex justify-content-center ">
+                <Link to="/SignUp">
+                  <button
+                    type="submit"
+                    className="btn btn-primary "
+                    style={{ width: "120px" }}
+                  >
+                    Sign Up
+                  </button>
+                </Link>
+              </span>
             </div>
           </div>
-        </form>
-
-        <div
-          style={{
-            position: "absolute",
-            top: "170px",
-            left: "130px",
-          }}
-        >
-          <button
-            type="submit"
-            className="btn btn-primary mt-4"
-            style={{ width: "200px" }}
-          >
-            Log In
-          </button>
         </div>
-        <div>
-          <hr
-            className="fw-bold"
-            style={{ marginTop: "245px", width: "250px", marginLeft: "105px" }}
-          ></hr>
-        </div>
-        <span
-          style={{
-            position: "absolute",
-            top: "255px",
-            left: "150px",
-          }}
-        >
-          <h6>Haven't signed up yet?</h6>
-        </span>
-        <span
-          style={{
-            position: "absolute",
-            top: "260px",
-            left: "180px",
-          }}
-        >
-          <Link to="/SignUp">
-            <button
-              type="submit"
-              className="btn btn-primary mt-4"
-              style={{ width: "120px" }}
-            >
-              Sign Up
-            </button>
-          </Link>
-        </span>
       </div>
     </>
   );
