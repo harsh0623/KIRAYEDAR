@@ -139,7 +139,11 @@ const SignUpPage = () => {
             Already Signed Up?
             <NavLink
               to="/"
-              style={{ marginLeft: "140px", marginBottom: "10px" }}
+              style={{
+                position: "absolute",
+                left: "59%",
+                width: "100px",
+              }}
             >
               Log in
             </NavLink>
