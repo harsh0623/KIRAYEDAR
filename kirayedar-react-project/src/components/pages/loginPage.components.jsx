@@ -36,7 +36,6 @@ const LoginPage = () => {
                   fontSize: "30px",
                   width: "150px",
                   color: "#2D3A86",
-                  
                 }}
               >
                 Log In
@@ -60,7 +59,8 @@ const LoginPage = () => {
                   <label className="mt-2" htmlFor="password">
                     <b>Password:</b>
                   </label>
-                  <input className="mt-1"
+                  <input
+                    className="mt-1"
                     style={{ width: "350px" }}
                     type="password"
                     id="password"
@@ -81,11 +81,10 @@ const LoginPage = () => {
             </div>
             <div>
               <hr
-                className="fw-bold"
+                className="fw-bold justify-content-center"
                 style={{
-                  marginTop: "10px",
-                  width: "250px",
-                  marginLeft: "45px",
+                  width: "18vw",
+                  marginLeft: "48px",
                 }}
               ></hr>
             </div>

@@ -2,13 +2,11 @@ import React from "react";
 import { useState } from "react";
 import Table from "../tables/Dashboardtable.components";
 
-
 const Dashboard = (props) => {
-
-  let [Flat,setFlat] = useState({
+  let [Flat, setFlat] = useState({
     flname: null,
-    RentDue: null
-  })
+    RentDue: null,
+  });
   const flat = props.FlatDetails;
   let Tdue = 0;
   for (const flats of flat) {
@@ -19,30 +17,29 @@ const Dashboard = (props) => {
   };
   const addFlat = () => {
     console.log(Flat);
-  }
-  
+  };
+
   return (
     <>
-      <div className="container fluid mt-4">
-        <div className="row">
-          {/*This is the rent and due card */}
-          <div className="col-4">
+      <div className="row justify-content-start">
+        {/*This is the rent and due card */}
+        <div className="col-4">
+          <div className="container fluid">
             <div
-              className="card mt-5 "
+              className="card  mt-4 "
               style={{
-                width: "80%",
+                width: "22vw",
                 height: "30vh",
-                position: "relative",
-                top: "10px",
+                marginLeft: "80px",
               }}
             >
               <img
-                src="https://cdn4.vectorstock.com/i/thumb-large/53/28/indian-rupee-coin-official-currency-india-vector-34485328.jpg"
+                src="https://media.istockphoto.com/vectors/rupee-flat-icon-sign-vector-paper-money-symbol-isolated-on-white-vector-id1347090437?b=1&k=20&m=1347090437&s=612x612&w=0&h=v-PMtmWQY16Pa2ZXBUjYVJ1EnKJKNDC8V8_yzrBt-T0="
                 alt="ruppees Sign"
                 style={{
-                  width: "40px",
+                  width: "50px",
                   position: "relative",
-                  left: "30px",
+                  left: "20px",
                   top: "37px",
                 }}
               ></img>
@@ -80,7 +77,7 @@ const Dashboard = (props) => {
                 src="https://media.istockphoto.com/vectors/rupee-flat-icon-sign-vector-paper-money-symbol-isolated-on-white-vector-id1347090437?b=1&k=20&m=1347090437&s=612x612&w=0&h=v-PMtmWQY16Pa2ZXBUjYVJ1EnKJKNDC8V8_yzrBt-T0="
                 alt="ruppees Sign"
                 style={{
-                  width: "60px",
+                  width: "50px",
                   position: "relative",
                   top: "60px",
                   left: "20px",
@@ -98,40 +95,44 @@ const Dashboard = (props) => {
               </span>
             </div>
           </div>
-          {/* This the flat table*/}
-          <div className="col-8">
-            <table
-              className="table table-bordered table-hover"
-              style={{
-                width: "50%",
-                position: "absolute",
-                left: "35%",
-              }}
-            >
-              <thead className="table-primary">
-                <tr style={{ textAlign: "center", fontSize: "20px" }}>
-                  <th style={{ width: "50%" }}>Flats</th>
-                  <th style={{ width: "50%" }}>Dues</th>
-                </tr>
-              </thead>
-              <Table flat={flat[0]}></Table>
-              <Table flat={flat[1]}></Table>
-              <Table flat={flat[2]}></Table>
-            </table>
-          </div>
         </div>
+      </div>
+      <div className="row ">
         {/* This is the add flat button*/}
-        <span style={{ position: "relative", left: "95%", bottom: "60px" }}>
+        <div className="">
           <button
             type="submit"
-            className="btn btn-primary  mt-4"
+            className="btn btn-primary mt-2"
+            style={{ marginLeft: "90%" }}
             data-toggle="modal"
             data-target="#exampleModal3"
           >
             ADD FLAT
           </button>
-        </span>
+        </div>
+
+        {/* This the flat table*/}
+        <div className="col-12 mt-2">
+          <table
+            className="table table-bordered table-hover "
+            style={{
+              width: "90vw",
+              marginLeft: "80px",
+            }}
+          >
+            <thead className="table-primary">
+              <tr style={{ textAlign: "center", fontSize: "20px" }}>
+                <th style={{ width: "50%" }}>Flats</th>
+                <th style={{ width: "50%" }}>Dues</th>
+              </tr>
+            </thead>
+            <Table flat={flat[0]}></Table>
+            <Table flat={flat[1]}></Table>
+            <Table flat={flat[2]}></Table>
+          </table>
+        </div>
       </div>
+
       {/*This is the add flat pop up*/}
       <div
         className="modal fade"
@@ -147,7 +148,7 @@ const Dashboard = (props) => {
             className="modal-content"
             style={{ height: "65vh", width: "47vw" }}
           >
-            <div style={{ position: "absolute", top: "20px", left: "20px" }}>
+            <div className="row ms-3 mt-2 justify-content-center">
               <h4>Add Your Flat...</h4>
             </div>
             <form onSubmit={addFlat}>
@@ -247,7 +248,11 @@ const Dashboard = (props) => {
               >
                 <label htmlFor="elecunit">Electricity start unit *</label>
                 <input
-                  style={{ width: "210px", position: "relative", left: "10px" }}
+                  style={{
+                    width: "210px",
+                    position: "relative",
+                    left: "10px",
+                  }}
                   type="number"
                   id="elecunit"
                   placeholder="Electricity start unit"
@@ -282,7 +287,11 @@ const Dashboard = (props) => {
               >
                 <label htmlFor="secmoney">Security money *</label>
                 <input
-                  style={{ width: "210px", position: "relative", left: "10px" }}
+                  style={{
+                    width: "210px",
+                    position: "relative",
+                    left: "10px",
+                  }}
                   type="number"
                   id="secmoney"
                   placeholder="Security money"
@@ -319,19 +328,19 @@ const Dashboard = (props) => {
                   width: "150px",
                   position: "relative",
                   left: "48%",
-                  top: "350px",
+                  top: "310px",
                 }}
               >
                 Close
               </button>
-              <button 
+              <button
                 type="submit"
                 className="btn btn-primary"
                 style={{
                   width: "150px",
                   position: "relative",
                   left: "50%",
-                  top: "350px",
+                  top: "310px",
                 }}
               >
                 Proceed
@@ -341,7 +350,7 @@ const Dashboard = (props) => {
         </div>
       </div>
     </>
-  )
+  );
 };
 
 export default Dashboard;

@@ -11,13 +11,10 @@ const TransactionPage = (props) => {
   return (
     <div>
       {/*This is the edit entry button*/}
-      <div>
+      <div className="row justify-content-end me-4">
         <button
-          type="button"
+          type="button "
           style={{
-            position: "relative",
-            left: "87%",
-            top: "5px",
             backgroundColor: "blue",
             borderColor: "#2196F3",
             border: "1px solid",
@@ -83,7 +80,7 @@ const TransactionPage = (props) => {
             border: "1px solid",
             color: "blue",
             height: "6vh",
-            width: "13vw",
+            width: "fit-content",
             borderRadius: "5px",
           }}
         >
