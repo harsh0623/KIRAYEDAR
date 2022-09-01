@@ -61,7 +61,7 @@ function App() {
           <Route path='/' element={<LoginPage />}></Route>
           <Route path='SignUp' element={<SignUpPage />}></Route>
           <Route path='dashboard' element={<Dashboard addFlatToTable={ addFlatFromForm } FlatDetails={FlatDetails} />}></Route>
-          <Route path='transactions' element={<TransactionPage Payments={ payments} Entries={ Entries} />}></Route>
+          <Route path='transactions/:FlatId' element={<TransactionPage Payments={ payments} Entries={ Entries} />}></Route>
         </Routes>
       </BrowserRouter>
     </>

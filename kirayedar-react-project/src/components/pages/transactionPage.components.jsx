@@ -1,17 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { MDBTable, MDBTableHead } from "mdb-react-ui-kit";
 import EntriesTable from "../tables/EntriesTable.components";
 import PaymentTable from "../tables/paymentTable.component";
 import RentTable from "../tables/RentTable.components";
+import { useParams } from "react-router-dom";
+import { getFlats, getPayments, getRents } from "../../flatdata";
+import { useEffect } from "react";
 
 const TransactionPage = (props) => {
   const test = () => "";
-  const Entries = props.Entries;
-  const Payments = props.Payments;
+  
+  let params = useParams();
+  const [flats, setFlat] = useState(getFlats);
+  const [payments, setPayment] = useState(getPayments);
+  const [rents, setRent] = useState(getRents);
+  console.log(payments);
+  useEffect(() => {
+    setFlat(flats.filter(flat => flat.id === parseInt(params.FlatId)))
+    setPayment(payments.filter(payment => payment.FlatId === parseInt(params.FlatId)))
+    setRent(rents.filter(rent => rent.FlatId === parseInt(params.FlatId)))
+  }, []);
+  console.log(params.FlatId);
+  console.log(flats)
+  
+  
   return (
     <div>
       {/*This is the edit entry button*/}
-      <div className="row justify-content-end me-4">
+      <div className="row justify-content-end me-4 mt-2">
         <button
           type="button "
           style={{
@@ -62,7 +78,7 @@ const TransactionPage = (props) => {
             </th>
           </tr>
         </MDBTableHead>
-        <EntriesTable entries={Entries[0]}></EntriesTable>
+        <EntriesTable flats={flats[0]}></EntriesTable>
       </MDBTable>
       {/*This is the add payment and view all container*/}
       <div className="ms-4">
@@ -95,6 +111,7 @@ const TransactionPage = (props) => {
             position: "relative",
             left: "78%",
             bottom: "35px",
+            cursor: "pointer",
           }}
         >
           View All
@@ -120,8 +137,8 @@ const TransactionPage = (props) => {
             </th>
           </tr>
         </MDBTableHead>
-        <PaymentTable payments={Payments[0]}></PaymentTable>
-        <PaymentTable payments={Payments[1]}></PaymentTable>
+        <PaymentTable Payments={payments[0]} flats={flats[0]}></PaymentTable>
+        <PaymentTable Payments={payments[1]} flats={flats[0]}></PaymentTable>
       </MDBTable>
       {/*This is the add rent and view all container*/}
       <div className="ms-4">
@@ -155,6 +172,7 @@ const TransactionPage = (props) => {
             position: "relative",
             left: "78%",
             bottom: "65px",
+            cursor: "pointer",
           }}
         >
           View All
@@ -168,47 +186,45 @@ const TransactionPage = (props) => {
       >
         <MDBTableHead className="table-primary">
           <tr style={{ textAlign: "center" }}>
-            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
+            <th
+              rowSpan="2"
+              scope="col"
+              style={{ width: "19%", paddingBottom: "20px" }}
+            >
               Date
             </th>
-            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
+            <th
+              scope="col"
+              rowSpan="2"
+              style={{ width: "19%", paddingBottom: "20px" }}
+            >
               Flat No.
             </th>
-            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
+            <th
+              scope="col"
+              rowSpan="2"
+              style={{ width: "19%", paddingBottom: "20px" }}
+            >
               Rent Amount
             </th>
-            <th scope="col" rowSpan={2} colSpan="2" style={{ width: "20%" }}>
+            <th scope="col" colSpan="2" style={{ width: "20%" }}>
               Electricity
-              <th
-                style={{
-                  textAlign: "center",
-                  width: "50%",
-                  position: "relative",
-                  left: "33px",
-                }}
-              >
-                {" "}
-                units
-              </th>
-              <th
-                style={{
-                  textAlign: "center",
-                  width: "50%",
-                  position: "relative",
-                  left: "123px",
-                }}
-              >
-                {" "}
-                price
-              </th>
             </th>
-            <th scope="col" style={{ width: "19%", paddingBottom: "20px" }}>
+            <th
+              rowSpan="2"
+              scope="col"
+              style={{ width: "19%", paddingBottom: "20px" }}
+            >
               Total
             </th>
           </tr>
+          <tr style={{ textAlign: "center" }}>
+            <th>units</th>
+            <th>price</th>
+          </tr>
         </MDBTableHead>
-        <RentTable Entries={Entries[0]} payments={Payments[0]}></RentTable>
-        <RentTable Entries={Entries[1]} payments={Payments[1]}></RentTable>
+        <RentTable Payments={payments[0]} flats={flats[0]}></RentTable>
+        <RentTable Payments={payments[1]} flats={flats[0]}></RentTable>
       </MDBTable>
       {/*This is the Modal pop up for add Rent*/}
       <div
@@ -476,68 +492,43 @@ const TransactionPage = (props) => {
                 <tr style={{ textAlign: "center" }}>
                   <th
                     scope="col"
+                    rowSpan="2"
                     style={{ width: "19%", paddingBottom: "20px" }}
                   >
                     Date
                   </th>
                   <th
                     scope="col"
+                    rowSpan="2"
                     style={{ width: "19%", paddingBottom: "20px" }}
                   >
                     Flat No.
                   </th>
                   <th
                     scope="col"
+                    rowSpan="2"
                     style={{ width: "19%", paddingBottom: "20px" }}
                   >
                     Rent Amount
                   </th>
-                  <th
-                    scope="col"
-                    rowSpan={2}
-                    colSpan="2"
-                    style={{ width: "20%" }}
-                  >
+                  <th scope="col" colSpan="2" style={{ width: "20%" }}>
                     Electricity
-                    <th
-                      style={{
-                        textAlign: "center",
-                        width: "50%",
-                        position: "relative",
-                        left: "22px",
-                      }}
-                    >
-                      {" "}
-                      units
-                    </th>
-                    <th
-                      style={{
-                        textAlign: "center",
-                        width: "50%",
-                        position: "relative",
-                        left: "85px",
-                      }}
-                    >
-                      {" "}
-                      price
-                    </th>
                   </th>
                   <th
                     scope="col"
+                    rowSpan="2"
                     style={{ width: "19%", paddingBottom: "20px" }}
                   >
                     Total
                   </th>
                 </tr>
+                <tr style={{ textAlign: "center" }}>
+                  <th>units</th>
+                  <th>price</th>
+                </tr>
               </MDBTableHead>
-              <RentTable
-                Entries={Entries[0]}
-                payments={Payments[0]}
-              ></RentTable>
-              <RentTable
-                Entries={Entries[1]}
-                payments={Payments[1]}
-              ></RentTable>
+              <RentTable Payments={payments[0]} flats={flats[0]}></RentTable>
+              <RentTable Payments={payments[1]} flats={flats[0]}></RentTable>
             </MDBTable>
           </div>
         </div>
@@ -579,8 +570,14 @@ const TransactionPage = (props) => {
                   </th>
                 </tr>
               </MDBTableHead>
-              <PaymentTable payments={Payments[0]}></PaymentTable>
-              <PaymentTable payments={Payments[1]}></PaymentTable>
+              <PaymentTable
+                Payments={payments[0]}
+                flats={flats[0]}
+              ></PaymentTable>
+              <PaymentTable
+                Payments={payments[1]}
+                flats={flats[0]}
+              ></PaymentTable>
             </MDBTable>
           </div>
         </div>

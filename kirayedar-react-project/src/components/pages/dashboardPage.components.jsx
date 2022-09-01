@@ -114,7 +114,7 @@ const Dashboard = (props) => {
         {/* This the flat table*/}
         <div className="col-12 mt-2">
           <table
-            className="table table-bordered table-hover "
+            className="table table-bordered "
             style={{
               width: "90vw",
               marginLeft: "80px",

@@ -1,18 +1,16 @@
 import { MDBTableBody } from "mdb-react-ui-kit";
 import React from "react";
 
-const RentTable = (props) => {
-    const entries = props.Entries;
-    const pay = props.payments;
+const RentTable = ({Payments,flats}) => {
     const price = 10;
-    const total = parseInt(entries.Rent) + (entries.Electricity_consume * price);
+    let total =11500;
     return (
       <MDBTableBody style={{ textAlign: "center" }}>
         <tr>
-          <td>{pay.date}</td>
-          <td>{entries.flname}</td>
-          <td>Rs.{entries.Rent}</td>
-          <td>{entries.Electricity_consume}</td>
+          <td>{Payments?.date??""}</td>
+          <td>{flats?.Flatname??""}</td>
+          <td>Rs.{flats?.rent??""}</td>
+          <td>{flats?.startUnit??""}</td>
           <td>Rs.{price}</td>
           <td>Rs.{total}</td>
         </tr>

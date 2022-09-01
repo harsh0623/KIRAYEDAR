@@ -3,14 +3,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const LoginPage = () => {
-  const [useInfo, setInfo] = useState({
+  const [userInfo, setInfo] = useState({
     email: null,
     password: null,
   });
   const HandleInputChange = (event) => {
     setInfo({ [event.target.id]: event.target.value });
   };
-
+  console.log(userInfo);
   return (
     <>
       <div
@@ -51,6 +51,7 @@ const LoginPage = () => {
                     style={{ width: "350px" }}
                     id="email"
                     type="email"
+                    value={userInfo.email}
                     placeholder="Email"
                     onChange={HandleInputChange}
                   />
@@ -64,6 +65,7 @@ const LoginPage = () => {
                     style={{ width: "350px" }}
                     type="password"
                     id="password"
+                    value={userInfo.password}
                     placeholder="Password"
                     onChange={HandleInputChange}
                   />

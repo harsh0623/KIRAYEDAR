@@ -1,13 +1,13 @@
 import React from "react";
 import { MDBTableBody } from "mdb-react-ui-kit";
 
-const PaymentTable = ({payments}) => {
+const PaymentTable = ({Payments,flats}) => {
   return (
     <MDBTableBody>
       <tr style={{ textAlign: "center",fontSize:"18px" }}>
-        <td style={{ width: "32%" }}>{payments.date}</td>
-        <td style={{ width: "32%" }}>{payments.name}</td>
-        <td style={{ width: "32%" }}>Rs.{payments.amountPaid}</td>
+        <td style={{ width: "32%" }}>{Payments?.date??""}</td>
+        <td style={{ width: "32%" }}>{flats?.tenantName??""}</td>
+        <td style={{ width: "32%" }}>Rs.{Payments?.amount??""}</td>
       </tr>
     </MDBTableBody>
   );

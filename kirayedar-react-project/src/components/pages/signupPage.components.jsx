@@ -1,12 +1,22 @@
 import React from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const SignUpPage = () => {
-  const test = () => "";
+  let [signUpInfo, setInfo] = useState({
+    fname: null,
+    lname: null,
+    email: null,
+    password: null,
+  });
+  const InputChange = (event) => {
+    setInfo({ [event.target.id]: event.target.value });
+  };
+  console.log(signUpInfo);
   return (
     <div
       className="d-flex justify-content-center align-items-center"
-      style={{ height: "cac(100vh-100px)" }}
+      style={{ height: "cal(100vh-100px)" }}
     >
       <div
         className="card mt-5"
@@ -29,10 +39,10 @@ const SignUpPage = () => {
               Sign Up
             </span>
           </div>
-          <form onSubmit={test}>
+          <form onSubmit={InputChange}>
             <div className="form-group">
               <div className="row justify-content-start ms-1">
-                <label htmlFor="Fname" style={{}}>
+                <label htmlFor="fname">
                   <b>First Name*</b>
                 </label>
                 <input
@@ -41,11 +51,12 @@ const SignUpPage = () => {
                   }}
                   type="text"
                   placeholder="First Name"
-                  id="Fname"
-                  onChange={test}
+                  id="fname"
+                  value={signUpInfo.fname}
+                  onChange={InputChange}
                 />
                 <label
-                  htmlFor="Lname"
+                  htmlFor="lname"
                   style={{ position: "absolute", top: "45px", left: "48%" }}
                 >
                   <b>Last Name*</b>
@@ -59,8 +70,9 @@ const SignUpPage = () => {
                   }}
                   type="text"
                   placeholder="Last Name"
-                  id="Lname"
-                  onChange={test}
+                  id="lname"
+                  value={signUpInfo.lname}
+                  onChange={InputChange}
                 />
               </div>
               <div className="row justify-content-center">
@@ -75,8 +87,9 @@ const SignUpPage = () => {
                   style={{ width: "450px" }}
                   id="email"
                   type="email"
+                  value={signUpInfo.email}
                   placeholder="Email Address"
-                  onChange={test}
+                  onChange={InputChange}
                 />
               </div>
               <div className="row justify-content-center">
@@ -91,8 +104,9 @@ const SignUpPage = () => {
                   style={{ width: "450px" }}
                   type="password"
                   id="password"
+                  value={signUpInfo.password}
                   placeholder="Password"
-                  onChange={test}
+                  onChange={InputChange}
                 />
               </div>
             </div>
@@ -103,7 +117,6 @@ const SignUpPage = () => {
               type="checkbox"
               id="check"
               value="Check"
-              onChange={test}
               style={{ position: "relative", top: "20px", right: "193px" }}
             />{" "}
             <span className="text-end">
