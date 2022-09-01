@@ -7,23 +7,22 @@ import { useParams } from "react-router-dom";
 import { getFlats, getPayments, getRents } from "../../flatdata";
 import { useEffect } from "react";
 
-const TransactionPage = (props) => {
+const TransactionPage = () => {
   const test = () => "";
-  
+
   let params = useParams();
   const [flats, setFlat] = useState(getFlats);
   const [payments, setPayment] = useState(getPayments);
   const [rents, setRent] = useState(getRents);
-  console.log(payments);
+
   useEffect(() => {
-    setFlat(flats.filter(flat => flat.id === parseInt(params.FlatId)))
-    setPayment(payments.filter(payment => payment.FlatId === parseInt(params.FlatId)))
-    setRent(rents.filter(rent => rent.FlatId === parseInt(params.FlatId)))
+    setFlat(flats.filter((flat) => flat.id === parseInt(params.FlatId)));
+    setPayment(
+      payments.filter((payment) => payment.FlatId === parseInt(params.FlatId))
+    );
+    setRent(rents.filter((rent) => rent.FlatId === parseInt(params.FlatId)));
   }, []);
-  console.log(params.FlatId);
-  console.log(flats)
-  
-  
+
   return (
     <div>
       {/*This is the edit entry button*/}

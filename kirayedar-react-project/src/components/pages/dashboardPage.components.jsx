@@ -1,9 +1,23 @@
 import React from "react";
-import { useState } from "react";
-import Table from "../tables/Dashboardtable.components";
+import { getFlats, getPayments, getRents } from "../../flatdata";
+import { NavLink, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Dashboard = (props) => {
-  let [Flat, setFlat] = useState({
+  let params = useParams();
+  const [flats, setFlat] = useState(getFlats);
+  const [payments, setPayment] = useState(getPayments);
+  const [rents, setRent] = useState(getRents);
+
+  // useEffect(() => {
+  //   setFlat(flats.filter((flat) => flat.id === parseInt(params.FlatId)));
+  //   setPayment(
+  //     payments.filter((payment) => payment.FlatId === parseInt(params.FlatId))
+  //   );
+  //   setRent(rents.filter((rent) => rent.FlatId === parseInt(params.FlatId)));
+  // }, []);
+
+  let [Flat, setflat] = useState({
     flname: null,
     RentDue: null,
   });
@@ -13,7 +27,7 @@ const Dashboard = (props) => {
     Tdue = flats.RentDue + Tdue;
   }
   const HandleInputChange = (event) => {
-    setFlat(() => ({ ...Flat, [event.target.id]: event.target.value }));
+    setflat(() => ({ ...Flat, [event.target.id]: event.target.value }));
   };
   const addFlat = () => {
     console.log(Flat);
@@ -126,9 +140,23 @@ const Dashboard = (props) => {
                 <th style={{ width: "50%" }}>Dues</th>
               </tr>
             </thead>
-            <Table flat={flat[0]}></Table>
-            <Table flat={flat[1]}></Table>
-            <Table flat={flat[2]}></Table>
+            <tbody style={{ textAlign: "center" }}>
+              {flats.map((flat) => (
+                <tr>
+                  <td>
+                    {" "}
+                    <NavLink
+                      to={`/transactions/${flat.id}`}
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      {flat.Flatname}
+                    </NavLink>
+                  </td>
+
+                  <td>Rs.{flat.rent}</td>
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
       </div>
