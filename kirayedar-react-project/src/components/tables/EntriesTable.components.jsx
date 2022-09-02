@@ -27,7 +27,7 @@ const EntriesTable = ({ flats }) => {
   }
   let ElectricityConsume = rents[0].endUnit - rents[0].startUnit;
   const totalDue = totalrent - totalpayment;
-
+  
   return (
     <MDBTableBody>
       <tr style={{ textAlign: "center", fontSize: "18px" }}>
@@ -43,5 +43,6 @@ const EntriesTable = ({ flats }) => {
     </MDBTableBody>
   );
 };
+
 
 export default EntriesTable;

@@ -16,17 +16,18 @@ const RentTable = ({ Payments }) => {
   }, []);
 
   const price = 10;
-  let ElectricityConsume = rents[0].endUnit - rents[0].startUnit;
-  let total = ElectricityConsume * price + flats[0].rent;
+  let ElectricityConsume;
+  
+  // let total = ElectricityConsume * price + flats[0].rent;
   return (
     <MDBTableBody style={{ textAlign: "center" }}>
       <tr>
         <td>{Payments?.date ?? ""}</td>
         <td>{flats[0]?.Flatname ?? ""}</td>
         <td>Rs.{flats[0]?.rent ?? ""}</td>
-        <td>{ElectricityConsume ?? ""}</td>
+        <td>{ElectricityConsume = rents.map(rent => (rent.endUnit) - (rent.startUnit))?? ""}</td>
         <td>Rs.{price}</td>
-        <td>Rs.{total}</td>
+        <td>Rs.1000</td>
       </tr>
     </MDBTableBody>
   );

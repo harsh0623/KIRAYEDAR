@@ -218,8 +218,8 @@ const TransactionPage = () => {
             </th>
           </tr>
           <tr style={{ textAlign: "center" }}>
-            <th>units</th>
-            <th>price</th>
+            <th style={{ width: "10%" }}>units</th>
+            <th style={{ width: "10%" }}>price</th>
           </tr>
         </MDBTableHead>
         <RentTable Payments={payments[0]} flats={flats[0]}></RentTable>
