@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { MDBTable, MDBTableHead } from "mdb-react-ui-kit";
+import { MDBTable, MDBTableBody, MDBTableHead } from "mdb-react-ui-kit";
 import EntriesTable from "../tables/EntriesTable.components";
-import PaymentTable from "../tables/paymentTable.component";
-import RentTable from "../tables/RentTable.components";
 import { useParams } from "react-router-dom";
 import { getFlats, getPayments, getRents } from "../../flatdata";
 import { useEffect } from "react";
@@ -77,7 +75,17 @@ const TransactionPage = () => {
             </th>
           </tr>
         </MDBTableHead>
-        <EntriesTable flats={flats[0]}></EntriesTable>
+        <EntriesTable
+          flats={flats[0]}
+          electricityConsume={rents.reduce(
+            (totalUnits, rent) => totalUnits + (rent.endUnit - rent.startUnit),
+            0
+          )}
+          totalDue={rents.reduce(
+            (totalRent, rent) =>
+              totalRent+ flats[0].rent + ((rent.endUnit - rent.startUnit) * flats[0].pricePerUnit), 0) -
+            payments.reduce((totalPayment,payment)=>(totalPayment+payment.amount),0)}
+        ></EntriesTable>
       </MDBTable>
       {/*This is the add payment and view all container*/}
       <div className="ms-4">
@@ -136,8 +144,18 @@ const TransactionPage = () => {
             </th>
           </tr>
         </MDBTableHead>
-        <PaymentTable Payments={payments[0]} flats={flats[0]}></PaymentTable>
-        <PaymentTable Payments={payments[1]} flats={flats[0]}></PaymentTable>
+        <MDBTableBody>
+          {payments.slice(0, 3).map((payment) => (
+            <tr
+              key={payment.id}
+              style={{ textAlign: "center", fontSize: "18px" }}
+            >
+              <td style={{ width: "32%" }}>{payment?.date ?? ""}</td>
+              <td style={{ width: "32%" }}>{flats[0]?.tenantName ?? ""}</td>
+              <td style={{ width: "32%" }}>Rs.{payment?.amount ?? ""}</td>
+            </tr>
+          ))}
+        </MDBTableBody>
       </MDBTable>
       {/*This is the add rent and view all container*/}
       <div className="ms-4">
@@ -222,8 +240,24 @@ const TransactionPage = () => {
             <th style={{ width: "10%" }}>price</th>
           </tr>
         </MDBTableHead>
-        <RentTable Payments={payments[0]} flats={flats[0]}></RentTable>
-        <RentTable Payments={payments[1]} flats={flats[0]}></RentTable>
+        <MDBTableBody style={{ textAlign: "center" }}>
+          {rents.slice(0, 3).map((rent) => (
+            <tr key={rent.id}>
+              <td>{rent.date}</td>
+              <td>{flats[0]?.Flatname ?? ""}</td>
+              <td>Rs.{flats[0]?.rent ?? ""}</td>
+              <td>{rent.endUnit - rent.startUnit}</td>
+              <td>
+                Rs.{(rent.endUnit - rent.startUnit) * flats[0].pricePerUnit}
+              </td>
+              <td>
+                Rs.
+                {(rent.endUnit - rent.startUnit) * flats[0].pricePerUnit +
+                  rent.rent}
+              </td>
+            </tr>
+          ))}
+        </MDBTableBody>
       </MDBTable>
       {/*This is the Modal pop up for add Rent*/}
       <div
@@ -526,8 +560,25 @@ const TransactionPage = () => {
                   <th>price</th>
                 </tr>
               </MDBTableHead>
-              <RentTable Payments={payments[0]} flats={flats[0]}></RentTable>
-              <RentTable Payments={payments[1]} flats={flats[0]}></RentTable>
+              <MDBTableBody style={{ textAlign: "center" }}>
+                {rents.map((rent) => (
+                  <tr>
+                    <td>{rent.date}</td>
+                    <td>{flats[0]?.Flatname ?? ""}</td>
+                    <td>Rs.{flats[0]?.rent ?? ""}</td>
+                    <td>{rent.endUnit - rent.startUnit}</td>
+                    <td>
+                      Rs.
+                      {(rent.endUnit - rent.startUnit) * flats[0].pricePerUnit}
+                    </td>
+                    <td>
+                      Rs.
+                      {(rent.endUnit - rent.startUnit) * flats[0].pricePerUnit +
+                        rent.rent}
+                    </td>
+                  </tr>
+                ))}
+              </MDBTableBody>
             </MDBTable>
           </div>
         </div>
@@ -569,14 +620,20 @@ const TransactionPage = () => {
                   </th>
                 </tr>
               </MDBTableHead>
-              <PaymentTable
-                Payments={payments[0]}
-                flats={flats[0]}
-              ></PaymentTable>
-              <PaymentTable
-                Payments={payments[1]}
-                flats={flats[0]}
-              ></PaymentTable>
+              <MDBTableBody>
+                {payments.map((payment) => (
+                  <tr
+                    key={payment.id}
+                    style={{ textAlign: "center", fontSize: "18px" }}
+                  >
+                    <td style={{ width: "32%" }}>{payment?.date ?? ""}</td>
+                    <td style={{ width: "32%" }}>
+                      {flats[0]?.tenantName ?? ""}
+                    </td>
+                    <td style={{ width: "32%" }}>Rs.{payment?.amount ?? ""}</td>
+                  </tr>
+                ))}
+              </MDBTableBody>
             </MDBTable>
           </div>
         </div>

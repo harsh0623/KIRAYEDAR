@@ -17,7 +17,7 @@ const Dashboard = (props) => {
   //   setRent(rents.filter((rent) => rent.FlatId === parseInt(params.FlatId)));
   // }, []);
 
- 
+
 
   return (
     
@@ -104,7 +104,7 @@ const Dashboard = (props) => {
           <button
             type="submit"
             className="btn btn-primary mt-2"
-            style={{ marginLeft: "88%" }}
+            style={{ marginLeft: "86%" }}
             data-toggle="modal"
             data-target="#exampleModal3"
           >
@@ -117,7 +117,7 @@ const Dashboard = (props) => {
           <table
             className="table table-bordered "
             style={{
-              width: "90vw",
+              width: "88vw",
               marginLeft: "80px",
             }}
           >

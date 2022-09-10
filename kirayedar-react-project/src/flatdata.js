@@ -96,80 +96,92 @@ const Rents = [{
     FlatId: 1,
     rent: 10000,
     startUnit: 56,
-    endUnit: 72
+    endUnit: 72,
+    date:"01-05-2022"
 },
 {
     id: 202,
     FlatId: 1,
     rent: 10000,
     startUnit: 72,
-    endUnit: 91
+    endUnit: 91,
+    date: "01-06-2022"
 }, {
     id: 203,
     FlatId: 1,
     rent: 10000,
     startUnit: 91,
-    endUnit: 110
+    endUnit: 110,
+    date: "01-07-2022"
 },
 {
     id: 204,
     FlatId: 1,
     rent: 10000,
     startUnit: 110,
-    endUnit: 125
+    endUnit: 125,
+    date: "01-08-2022"
 }, {
     id: 205,
     FlatId: 1,
     rent: 10000,
     startUnit: 125,
-    endUnit: 150
+    endUnit: 150,
+    date: "01-09-2022"
 },
 {
     id: 206,
     FlatId: 2,
     rent: 8000,
     startUnit: 33,
-    endUnit: 52
+    endUnit: 52,
+    date: "01-07-2022"
 },
 {
     id: 207,
     FlatId: 2,
     rent: 8000,
     startUnit: 52,
-    endUnit: 76
+    endUnit: 76,
+    date: "01-08-2022"
 }, {
     id: 208,
     FlatId: 2,
     rent: 8000,
     startUnit: 76,
-    endUnit: 110
+    endUnit: 110,
+    date: "01-09-2022"
 },
 {
     id: 209,
     FlatId: 3,
     rent: 9000,
     startUnit: 73,
-    endUnit: 104
+    endUnit: 104,
+    date: "01-06-2022"
 },
 {
     id: 210,
     FlatId: 3,
     rent: 9000,
     startUnit: 104,
-    endUnit: 132
+    endUnit: 132,
+    date: "01-07-2022"
 }, {
     id: 211,
     FlatId: 3,
     rent: 9000,
     startUnit: 132,
-    endUnit: 150
+    endUnit: 150,
+    date: "01-08-2022"
 },
 {
     id: 212,
     FlatId: 3,
     rent: 9000,
     startUnit: 150,
-    endUnit: 185
+    endUnit: 185,
+    date: "01-09-2022"
 }]
 
 export function getFlats() {
